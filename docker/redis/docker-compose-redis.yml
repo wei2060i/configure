@@ -1,0 +1,18 @@
+version: "3.1"
+services: 
+    redis:
+      image: redis
+      container_name: redis
+      #restart: always
+      privileged: true
+      ports:
+        - "6379:6379"
+      environment:
+         TZ: Asia/Shanghai
+      volumes:
+      - ./config/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data:/data
+      tty: true
+      command: 
+         redis-server /usr/local/etc/redis/redis.conf --appendonly yes
+      network_mode: "bridge"

@@ -1,0 +1,26 @@
+version: "3.1"
+services: 
+  fastdfs-tracker:
+       hostname: tracker
+       image: delron/fastdfs
+       container_name: tracker
+       network_mode: "host"
+       environment:
+          TZ: Asia/Shanghai
+       volumes:
+       - ./tracker:/var/fdfs
+       command: 
+         tracker
+  fastdfs-storage:
+       hostname: storage
+       image: delron/fastdfs
+       container_name: storage
+       network_mode: "host"
+       environment:
+          TZ: Asia/Shanghai
+          GROUP_NAME: "group1"
+          TRACKER_SERVER: "124.70.207.7:22122"
+       volumes:
+       - ./storage:/var/fdfs
+       command:
+         storage

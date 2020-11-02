@@ -1,0 +1,5 @@
+tracker22122
+nginx8888
+23000
+进入storage容器，到storage的配置文件中配置http访问的端口，配置文件在/etc/fdfs目录下的storage.conf。
+配置nginx，在/usr/local/nginx目录下，修改nginx.conf文件
