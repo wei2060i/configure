@@ -3,3 +3,4 @@ nginx8888
 storage服务器的端口号23000
 进入storage容器，到storage的配置文件中配置http访问的端口，配置文件在/etc/fdfs目录下的storage.conf。
 配置nginx，在/usr/local/nginx目录下，修改nginx.conf文件
+如果第二次运行docker-compose up -d storage 无法启动,可以试试storage/data目录下的fdfs_storaged.pid 删除再重新运行
