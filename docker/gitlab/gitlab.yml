@@ -1,0 +1,24 @@
+version: "3.1"
+services: 
+    web:
+      image: gitlab/gitlab-ce
+      hostname: "124.70.207.7"
+      container_name: gitlab
+      privileged: true
+      #restart: always
+      environment:
+         TZ: Asia/Shanghai
+         GITLAB_OMNIBUS_CONFIG: |
+            external_url 'http://124.70.207.7'
+            gitlab_rails['gitlab_shell_ssh_port'] = 9222
+            unicorn['port'] = 8888
+            nginx['listen_port'] = 9000
+      ports: 
+       - "9000:9000"
+       - "9443:443"
+       - "9222:22"
+      volumes: 
+       - "./config:/etc/gitlab"
+       - "./data:/var/opt/gitlab"
+       - "./log:/var/log/gitlab"    
+      network_mode: "bridge"
