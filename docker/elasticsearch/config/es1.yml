@@ -1,0 +1,5 @@
+http.host: 0.0.0.0
+transport.host: 0.0.0.0
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+network.host: "192.168.186.128"
